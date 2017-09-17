@@ -16,6 +16,7 @@
   "plugins": [
     "syntax-dynamic-import",
     "transform-object-rest-spread",
+    [ "import", { "libraryName": "antd", "style": true }],
     [
       "transform-class-properties",
       {
