@@ -7,4 +7,25 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import dva from 'dva'
+import { users } from 'models'
+import routes from 'routes'
+import createLoading from 'dva-loading'
+
+// 1. Initialize
+const app = dva()
+
+// 2. Plugins
+// app.use({});
+app.use(createLoading())
+
+// 3. Model
+app.model(users)
+
+// 4. Router
+app.router(routes)
+
+// 5. Start
+document.addEventListener('DOMContentLoaded', () => {
+  app.start('#root')
+})
